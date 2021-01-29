@@ -1,0 +1,67 @@
+.confess-form{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* display: none; */
+}
+.confess-form img{
+    width: 100%;
+    height: 100%;
+}
+.confess-form .category{
+    position: absolute;
+    top: 35%;
+    left: 18%;
+}
+.confess-form textarea{
+    position: absolute;
+    box-sizing: border-box;
+    top: 55.2%;
+    left: 20.2%;
+    height: 20.4%;
+    width: 58%;
+    opacity: 1;
+    border:none;
+    font-size: 22px;
+    background-color: #f3ebd9;
+    resize: none;
+    padding: 10px 0;
+}
+.confess-form textarea:focus{
+    outline: none;
+}
+.confess-form .commit{
+    position: absolute;
+    height: 7.3%;
+    width: 27.2%;
+    bottom: 7.9%;
+    right: 11.8%;
+    opacity: 0;
+    cursor: pointer;
+    border: 4px solid #5eca91c2;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0);
+}
+.confess-form .commit:focus{
+    opacity: 1;
+    transition: 1s;
+    outline: none;
+}
+.vid-push{
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.temp{
+    z-index: 1;
+    box-sizing: content-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 1em;
+}

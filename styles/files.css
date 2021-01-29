@@ -1,0 +1,59 @@
+.window-wrap .files-img {
+    width: 100%;
+    height: 100%;
+}
+
+.window-wrap .love, .window-wrap .friend, .window-wrap .family, .window-wrap .studies, .window-wrap .work, .window-wrap .life, .window-wrap .others, .window-wrap .no-entry {
+    position: absolute;
+    width: 37.2%;
+    height: 22.4%;
+    opacity: 1;
+    cursor: pointer;
+    border: 0 solid #5eca91c2;
+    background-color: rgba(255, 255, 255, 0);
+}
+.window-wrap .love{
+    top: 3%;
+    left: 7.5%;
+}
+.window-wrap .friend{
+    top: 3%;
+    right: 8%;
+}
+.window-wrap .family{
+    left: 8%;
+    top: 26%;
+}
+.window-wrap .studies{
+    right: 8%;
+    top: 26%;
+}
+.window-wrap .work{
+    left: 8%;
+    top: 49%;
+}
+.window-wrap .life{
+    right: 8%;
+    top: 49%;
+}
+.window-wrap .others{
+    left: 7.5%;
+    top: 72%;
+    width: 34%;
+}
+.window-wrap .no-entry{
+    right: 8%;
+    top: 72%;
+}
+
+.files-img ~ button p{
+    position: relative;
+    top: 34%;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.others p{
+    left: 13%;
+}

@@ -1,0 +1,100 @@
+body{
+  background-color: #000;
+}
+
+/* Todo:
+水平： height:100vh; width:56.25vh;
+垂直&&（比16:9寬||一樣）： height:100vh; width:56.25vh; 
+垂直&&比16:9長： width:100vw; height:???vw;
+mobile就用width: 100vw;因為打字鍵盤會壓縮vh
+*/
+.window-wrap {
+  position: absolute;
+  max-height: 99vh;
+  width: calc(56.25vh*0.99);
+  min-height: 560px;
+  min-width: 315px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.window-wrap .vid-opening, .foreword{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.window-wrap .vid-opening{
+  z-index: 1;
+}
+
+.window-wrap .play-btn {
+  z-index: 3;
+  position: absolute;
+  box-sizing: content-box;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 1em;
+  background: #0069ed;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+}
+
+.window-wrap .play-btn:hover, .window-wrap .play-btn:focus {
+  background: #4b5158;
+}
+
+.window-wrap .play-btn:focus {
+  outline: 0;
+  outline-offset: -4px;
+}
+
+.window-wrap .play-btn:active {
+  transform: scale(0.7);
+}
+
+
+.foreword img{
+  height: 100%;
+  width: 100%
+}
+.foreword p{
+  left: 0;
+  right: 0;
+  box-sizing: content-box;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  opacity: .7;
+  width: calc(100% - 200px);
+  height: calc(100% - 200px);
+  font-size: 25px;
+  /* line-height: 3em; */
+}
+/* To-do:
+按鈕的style */
+.confess-btn{
+  z-index: 2;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 10%;
+  font-size: 35px;
+}
