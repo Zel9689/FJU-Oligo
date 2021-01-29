@@ -18,7 +18,7 @@
     const textarea = document.querySelector('.confess-form textarea')
     var data = { category: select.value, content: textarea.value };
     console.log('data=', data);
-    postData('./submit.php', data)
+    postData('./db/submit.php', data)
       .then(showVidAfterConfessForm) // JSON from `response.text()` call
       .catch(error => console.error(error))
 
@@ -31,7 +31,7 @@
     pushVid.play();
   }
 
-  //proceed btn
+  //proceed btn todo: 要改成ajax
   document.querySelector('.temp').addEventListener('click', renderResultPage);
 
   function postData(url, data) {

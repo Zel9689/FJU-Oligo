@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   confessBtn.addEventListener('click', () => {
     var removeList = ['opening.js'];
     var appendList = ['./scripts/confess_form.js'];
-    loadXMLDoc('body', './confess_form.html',removeList, appendList);
+    loadXMLDoc('body', './confess.php',removeList, appendList);
       
     console.log('doing');}
     );

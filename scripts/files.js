@@ -7,7 +7,7 @@
     const life_p = document.querySelector('.life p');
     const others_p = document.querySelector('.others p');
 
-    postData('./get_category_percent.php',)
+    postData('./db/get_category_percent.php',)
 
     function getData(url, data) {
         // Default options are marked with *
