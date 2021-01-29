@@ -1,6 +1,8 @@
 <?php
 $headless = true;
-// if($_GET['page'])
+if($_GET['ajax'] == '1'){
+  $headless = false;
+}
 if ($headless) {
   include("./template/head.html");
 }
@@ -33,7 +35,7 @@ if ($headless) {
     </form>
   </div>
 </div>
-<script src="./scripts/confess_form.js"></script>
+<script src="./scripts/confess.js"></script>
 
 <?php
 if ($headless) {

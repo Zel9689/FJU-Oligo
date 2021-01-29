@@ -7,23 +7,17 @@
     const life_p = document.querySelector('.life p');
     const others_p = document.querySelector('.others p');
 
-    postData('./db/get_category_percent.php',)
-
-    function getData(url, data) {
-        // Default options are marked with *
-        return fetch(url, {
-          body: JSON.stringify(data), // must match 'Content-Type' header
-          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-          credentials: 'same-origin', // include, same-origin, *omit
-          headers: {
-            'user-agent': 'Mozilla/4.0 MDN Example',
-            'content-type': 'application/json'
-          },
-          method: 'POST', // *GET, POST, PUT, DELETE, etc.
-          mode: 'same-origin', // no-cors, cors, *same-origin
-          redirect: 'follow', // manual, *follow, error
-          referrer: 'no-referrer', // *client, no-referrer
-        })
-          .then(response => response.text()) // 輸出成 text
-      }
+    fetch('./db/get_category_percent.php')
+      .then(response => response.json())
+      .then(json => placePercent(json));
+    
+    function placePercent(json) {
+      love_p.innerHTML = Math.floor(json.love / json.all * 10000)/100 + '%';
+      friend_p.innerHTML = Math.floor(json.friend / json.all * 10000)/100 + '%';
+      family_p.innerHTML = Math.floor(json.family / json.all * 10000)/100 + '%';
+      studies_p.innerHTML = Math.floor(json.studies / json.all * 10000)/100 + '%';
+      work_p.innerHTML = Math.floor(json.work / json.all * 10000)/100 + '%';
+      life_p.innerHTML = Math.floor(json.life / json.all * 10000)/100 + '%';
+      others_p.innerHTML = Math.floor(json.others / json.all * 10000)/100 + '%';
+    }
 })(window);

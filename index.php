@@ -19,7 +19,7 @@ if ($headless) {
   </video>
   <button class="play-btn">Start</button>
 </div>
-<script src="./scripts/opening.js"></script>
+<script src="./scripts/index.js"></script>
 
 
 <?php
