@@ -18,8 +18,8 @@ if ($headless) {
     <p>你的瀏覽器不支援 HTML 5 video</p>
   </video>
   <button class="play-btn">Start</button>
+  <script src="./scripts/index.js"></script>
 </div>
-<script src="./scripts/index.js"></script>
 
 
 <?php

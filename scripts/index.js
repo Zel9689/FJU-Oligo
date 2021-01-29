@@ -50,10 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //跳到下一個part
   confessBtn.addEventListener('click', () => {
-    var removeList = ['opening.js'];
-    var appendList = ['./scripts/confess_form.js'];
-    loadXMLDoc('body', './confess.php',removeList, appendList);
-      
+    var removeList = ['index.js'];
+    var appendList = ['./scripts/confess.js'];
+    ajaxLoad('.window-wrap', './confess.php', appendList, removeList);
     console.log('doing');}
     );
 

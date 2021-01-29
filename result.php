@@ -3,15 +3,15 @@ $headless = true;
 // if($_GET['page'])
 
 $src = array(
-  'love' => './data/結果頁/結果頁 愛情.jpg',
-  'friend' => './data/結果頁/結果頁 友情.jpg',
-  'studies' => './data/結果頁/結果頁 學業.jpg',
-  'family' => './data/結果頁/結果頁 親情.jpg',
-  'work' => './data/結果頁/結果頁 工作.jpg',
-  'life' => './data/結果頁/結果頁 生活.jpg',
-  'others' => './data/結果頁/結果頁 其他.jpg',
+  '愛情' => './data/結果頁/結果頁 愛情.jpg',
+  '友情' => './data/結果頁/結果頁 友情.jpg',
+  '學業' => './data/結果頁/結果頁 學業.jpg',
+  '親情' => './data/結果頁/結果頁 親情.jpg',
+  '工作' => './data/結果頁/結果頁 工作.jpg',
+  '生活' => './data/結果頁/結果頁 生活.jpg',
+  '其他' => './data/結果頁/結果頁 其他.jpg',
 );
-$category = 'others'; //沒用GET取得的圖片
+$category = '其他'; //沒用GET取得的圖片
 if($_GET['category'] != NULL){
   $category = $_GET['category'];
 }
@@ -42,10 +42,9 @@ if ($headless) {
       </div>
     </div>
   </div>
-
+  <script src="./scripts/result.js"></script>
 </div>
 
-<script src="./scripts/result.js"></script>
 
 <?php
 if ($headless) {

@@ -34,8 +34,8 @@ if ($headless) {
       <!-- To-do: implement ajax POST -->
     </form>
   </div>
+  <script src="./scripts/confess.js"></script>
 </div>
-<script src="./scripts/confess.js"></script>
 
 <?php
 if ($headless) {

@@ -16,9 +16,8 @@ if ($headless) {
     <button class="life"><p>30%</p></button>
     <button class="others"><p>30%</p></button>
     <button class="no-entry"></button>
+    <script src="./scripts/files.js"></script>
 </div>
-
-<script src="./scripts/files.js"></script>
 
 <?php
 if ($headless) {

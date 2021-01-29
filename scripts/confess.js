@@ -6,6 +6,8 @@
   const commitBtn = document.querySelector('.commit');
   const confessFormPage = document.querySelector('.confess-form');
   const form = document.querySelector('.confess-form form');
+  const select = document.querySelector('.confess-form select');
+  const textarea = document.querySelector('.confess-form textarea')
   playBtn.style = "display: none;";
   playBtn.addEventListener('click', () => {
     pushVid.play();
@@ -14,8 +16,6 @@
   form.onsubmit = () => {
     console.log('form.onsbumit');
     // 來發個 POST Request:
-    const select = document.querySelector('.confess-form select');
-    const textarea = document.querySelector('.confess-form textarea')
     var data = { category: select.value, content: textarea.value };
     console.log('data=', data);
     postData('./db/submit.php', data)
@@ -31,25 +31,12 @@
     pushVid.play();
   }
 
-  //proceed btn todo: 要改成ajax
-  document.querySelector('.temp').addEventListener('click', renderResultPage);
+  //proceed btn 要實作上滑效果
+  document.querySelector('.temp').addEventListener('click', () => {
+    console.log(select.value);
+    ajaxLoad('.window-wrap', './result.php?category=' + select.value, ['./scripts/result.js'], ['confess.js']);
+  });
 
-  function postData(url, data) {
-    // Default options are marked with *
-    return fetch(url, {
-      body: JSON.stringify(data), // must match 'Content-Type' header
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'same-origin', // include, same-origin, *omit
-      headers: {
-        'user-agent': 'Mozilla/4.0 MDN Example',
-        'content-type': 'application/json'
-      },
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      mode: 'same-origin', // no-cors, cors, *same-origin
-      redirect: 'follow', // manual, *follow, error
-      referrer: 'no-referrer', // *client, no-referrer
-    })
-      .then(response => response.text()) // 輸出成 text
-  }
+  
 
 })(window);

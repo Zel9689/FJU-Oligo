@@ -8,4 +8,6 @@ shareBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
     shareWindow.classList.remove('is-open');
 });
-goToFileBtn.addEventListener('click', renderFilesPage);
+goToFileBtn.addEventListener('click', () => {
+    ajaxLoad('.window-wrap', './files.php', ['./scripts/files.js'], ['result.js']);
+});
