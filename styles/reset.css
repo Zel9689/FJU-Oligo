@@ -3,3 +3,20 @@ html, body{
     padding: 0;
     border: 0;
 }
+@font-face {
+    font-family: "CSong3HK Medium";
+    src: url('../data/fonts/蒙納繁長宋.otf');
+    src: url('../data/fonts/converted-files/CSong3HK-Medium.woff');
+}
+@font-face {
+    font-family: Optima;
+    src: local('Optima');
+    src: url('../data/fonts/Optima.ttc');
+    src: url('../data/fonts/converted-files/Optima-Regular.woff2');
+}
+.font-song{
+    font-family: "CSong3HK Medium";
+}
+.font-optima{
+    font-family: Optima;
+}
