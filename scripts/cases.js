@@ -51,6 +51,8 @@
             }
         }
     }
+    //click return button to call history.back()
+    document.querySelector('.case-return').addEventListener('click', () => history.back());
 
     loadCases();
     window.test = {loadCases: loadCases};

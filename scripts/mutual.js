@@ -17,8 +17,8 @@ function postData(url, data) {
     })
         .then(response => response.text()) // 輸出成 text
 }
-//Ajax 載入指定頁面url(可以加上GET query) 取代目前頁面指定元素 新增/移除指定scripts
-function ajaxLoad(replacedNode, url, appendList, removeList) {
+//Ajax 載入指定頁面url(可以加上GET query) 取代目前頁面指定元素 新增/移除指定scripts 改變標題名稱 doPush:加一個historyState
+function ajaxLoad(replacedNode, url, appendList, removeList, doPush=true) {
     var mark = document.createElement('div');
     mark.classList.add('ajax-mark');
     node = document.querySelector(replacedNode);
@@ -36,9 +36,12 @@ function ajaxLoad(replacedNode, url, appendList, removeList) {
         .then(() => {
             mark.remove();
             dynamicLoadScripts(appendList, removeList);
+            window.urlHold = url; //留下pushState之前的url
+            if(doPush){
+                history.pushState({ page: url }, "dontcare", url);
+            }
+            changeTitle();
         })
-        .then(() => history.pushState({ page: url }, "dontcare", url))
-        .then(() => changeTitle());
 }
 //如果開始播放就把播放鍵隱藏
 function handleFirstPlay(event) {
@@ -46,13 +49,13 @@ function handleFirstPlay(event) {
     let vid = event.target;
     vid.onplay = null;
     // Start whatever you need to do after playback has started
-    vid.playbackRate = 3;
+    // vid.playbackRate = 3;
     var playBtn = document.querySelector('.play-btn');
     playBtn.style = 'display: none';
 }
 //動態加載&移除scripts; 傳入值為array
 function dynamicLoadScripts(appendList, removeList) {
-    console.log(removeList, appendList);
+    console.log(appendList, removeList);
     const head = document.querySelector('head');
     for (let scriptName of removeList) {
         for (let element of head.querySelectorAll('script')) {
@@ -68,6 +71,9 @@ function dynamicLoadScripts(appendList, removeList) {
         head.appendChild(script);
     }
 }
+
+//下面的部份寫很死，爛，檔名、網址一定要.php，耦合到爆
+
 //change page title
 function changeTitle() {
     for (let value of document.URL.split('/')) {
@@ -77,4 +83,33 @@ function changeTitle() {
         }
         document.title = '疚事排出所';
     }
+}
+//history.replaceState on non-ajax page loaded
+(() => {
+    console.log('replaceState');
+    var url = './';
+    for (let value of document.URL.split('/')) {
+        if (value.includes('.php')) {
+            url += value;
+        }
+    }
+    if(url == './'){
+        url = './index.php';
+    }
+    window.urlHold = url; //留下replaceState之前的url
+    history.replaceState({ page: url }, "dontcare", url)
+})();
+//onpopstate
+window.onpopstate = function (e) {
+    console.log('onpopstate');
+    var nextUrl = e.state.page;
+    var currentUrl = (() => {
+        for (let value of window.urlHold.split('/')) {
+            if (value.includes('.php')) {
+                return value.split('.')[0];
+            }
+        }
+        return 'index'
+    })();
+    ajaxLoad('.window-wrap', nextUrl, ['./scripts/' + nextUrl.split('?')[0].replace('php', 'js')], [currentUrl + '.js'], false);
 }

@@ -29,7 +29,7 @@ if ($headless) {
         <option>生活</option>
         <option>其他</option>
       </select>
-      <textarea name="confess-content" placeholder="【你可以寫下曾經讓你有罪惡感的事】" maxlength="500" required></textarea>
+      <textarea class="font-song" name="confess-content" placeholder="【你可以寫下曾經讓你有罪惡感的事】" maxlength="500" required></textarea>
       <input type="submit" value="" class="commit"></input>
       <!-- To-do: implement ajax POST -->
     </form>

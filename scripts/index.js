@@ -1,6 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-
-  console.log('ok');
+; ((window, undefined) => {
   const openingVid = document.querySelector('video');
   const playBtn = document.querySelector('.play-btn');
   const foreword = document.querySelector('.foreword');
@@ -45,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         confessBtn.style = 'opacity: 1; transition: 2s;';
       }, 2000)
     }
-    console.log(i);
   }
 
   //跳到下一個part
@@ -53,8 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var removeList = ['index.js'];
     var appendList = ['./scripts/confess.js'];
     ajaxLoad('.window-wrap', './confess.php', appendList, removeList);
-    console.log('doing');}
-    );
+    });
 
-});
+})(window);
 

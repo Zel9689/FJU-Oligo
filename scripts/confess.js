@@ -14,7 +14,6 @@
   });
 
   form.onsubmit = () => {
-    console.log('form.onsbumit');
     // 來發個 POST Request:
     var data = { category: select.value, content: textarea.value };
     console.log('data=', data);
