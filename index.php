@@ -1,6 +1,8 @@
 <?php
 $headless = true;
-// if($_GET['page'])
+if($_GET['ajax'] == '1'){
+  $headless = false;
+}
 if ($headless) {
   include("./template/head.html");
 }

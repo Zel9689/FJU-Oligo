@@ -21,6 +21,10 @@
     margin: auto;
     z-index: 0;
 }
+.case-list{
+    height: 86%;
+    overflow-y: scroll;
+}
 .radio{
     position: absolute;
     z-index: 1;
@@ -46,10 +50,10 @@
 }
 .slogan{
     position: absolute;
-    width: 62%;
+    width: 56%;
     left: 50%;
     transform: translateX(-60%);
-    bottom: 5%;
+    bottom: 9%;
 }
 
 .case-bar p{
@@ -66,4 +70,97 @@
     overflow : hidden;
     text-overflow : ellipsis;
     color: #796e61;
+}
+
+.case-content{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition-property: opacity, margin;
+    transition-duration: .5s;
+    -moz-transition-property: opacity, margin;
+    -moz-transition-duration: .5s;
+    -webkit-transition-property: opacity, margin;
+    -webkit-transition-duration: .5s;
+}
+
+.case-content.is-open{
+    height: auto;
+    opacity: 1;
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin: 4vh auto 0 auto;
+    box-sizing: border-box;
+    background-color: #c2b59b;
+    border-color: #726658;
+    border-radius: 30px;
+    border-style: solid;
+    border-width: 6px;
+}
+.case-content.is-open .plus-minus{
+    border-bottom: solid;
+    border-color: #726658;
+    border-width: 6px;
+    padding: 4%;
+}
+.plus-minus .plus{
+    display:inline-block;
+    width:2.3vh;
+    height:2.3vh;
+    background:
+      linear-gradient(#726658,#726658),
+      linear-gradient(#726658,#726658),
+      #fff;
+    background-position:center;
+    background-size:55% 0.33vh, 0.33vh 50%; /*thickness = 2px, length = 50% (25px)*/
+    background-repeat:no-repeat;
+    border-radius:50%;
+}
+.plus-minus .minus{
+    display:inline-block;
+    width:2.3vh;
+    height:2.3vh;
+    margin-right: 1.5%;
+    background:
+      linear-gradient(#726658,#726658),
+      linear-gradient(#726658,#726658),
+      #fffdf4;
+    background-position:center;
+    background-size: 50% 0.33vh, 0.33vh 0%; /*thickness = 2px, length = 50% (25px)*/
+    background-repeat:no-repeat;
+    border-radius:50%;
+}
+
+.content-box{
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+}
+.content-box .oligo{
+    padding: 3% 0 3% 3%;
+    margin: 0 0 auto 0;
+}
+.right{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.content-box p{
+    min-height: 5em;
+    /* mode1不註解max-height, mode2註解max-height */
+    max-height: 5em;
+    padding: 3%;
+    word-break: break-all;
+    color: #574d42;
+    font-size:2.5vh;
+    margin: 0;
+    overflow-y: auto;
+}
+
+.content-box .all-let-go{
+    align-self: flex-end;
+    padding: 3%;
+    width: 43%;
+    margin: 0 0 0 auto;
 }

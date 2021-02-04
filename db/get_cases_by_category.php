@@ -7,55 +7,39 @@ $connect = new mysqli($host, $user, $passwd, $database);
 if($connect->connect_error) {
     die("連結失敗: " . $connect->connect_error);
 }
-echo "連線成功";
-echo "<br>";
+// echo "連線成功";
+// echo "<br>";
 
-//選擇資料表user，條件是欄位id = 1的
-$selectSql = "SELECT * FROM confess_form WHERE 'category' = '其他'";
-//呼叫query方法(SQL語法)
-$memberData = $connect->query($selectSql);
-//有資料筆數大於0時才執行
-if ($memberData->num_rows > 0) {
-    //讀取剛才取回的資料
-    while ($row = $memberData->fetch_assoc()) {
-        print_r($row);
+$category = $_GET['category']; //要求什麼種類的
+$quantity = $_GET['quantity']; //client端目前筆數
+$num_per_load = 10; //每次刷新幾筆
+if($quantity == NULL){
+    $quantity = 0;
+}
+
+$name_map = array(
+    'love' => '愛情',
+    'friend' => '友情',
+    'family' => '親情',
+    'studies' => '學業',
+    'work' => '工作',
+    'life' => '生活',
+    'others' => '其他',
+);
+$data = array();
+foreach($name_map as $key => $value){
+    if($category == $key){
+        $selectSql = "SELECT * FROM confess_form WHERE category = '" . $value . "' ORDER BY ID DESC LIMIT " . $quantity . "," . $num_per_load;
+        $query = $connect->query($selectSql);
+        if($query->num_rows > 0){
+            while($row = $query->fetch_row()){
+                array_push($data, $row[2]);
+            }
+        }
+        break;
     }
-} else {
-    echo '0筆資料';
 }
+header('Content-Type: application/json');
+echo json_encode($data);
 
 
-$category = $_GET['category'];
-switch ($category) {
-    case '愛情':
-        # code...
-        $amount_of_love = "SELECT * FROM confess_form WHERE 'category' = '愛情'";
-        break;
-    case '友情':
-        # code...
-        $amount_of_friend = "SELECT * FROM confess_form WHERE 'category' = '友情'";
-        break;
-    case '親情':
-        # code...
-        $amount_of_family = "SELECT * FROM confess_form WHERE 'category' = '親情'";
-        break;
-    case '學業':
-        # code...
-        $amount_of_studies = "SELECT * FROM confess_form WHERE 'category' = '學業'";
-        break;
-    case '工作':
-        # code...
-        $amount_of_work = "SELECT * FROM confess_form WHERE 'category' = '工作'";
-        break;
-    case '生活':
-        # code...
-        $amount_of_life = "SELECT * FROM confess_form WHERE 'category' = '生活'";
-        break;
-    case '其他':
-        # code...
-        $amount_of_others = "SELECT * FROM confess_form WHERE 'category' = '其他'";
-        break;
-    default:
-        return 0;
-        break;
-}
