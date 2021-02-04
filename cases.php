@@ -12,6 +12,9 @@ if ($headless) {
   <div class="outter">
     <img class="radio" src="./data/圖層/無線電.png" alt=""></img>
     <div class="inner">
+      <div class="case-return-space">
+        <button class="case-return"><img src="./data/close.svg" alt=""></button>
+      </div>
       <div class="case-list">
 
       </div>

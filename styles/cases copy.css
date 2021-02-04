@@ -22,7 +22,7 @@
     z-index: 0;
 }
 .case-list{
-    height: 81%;
+    height: 86%;
     overflow-y: scroll;
 }
 .radio{
@@ -41,7 +41,7 @@
     margin-top: 10%;
 }
 .case-bar:nth-child(1){
-    margin-top: 5%;
+    margin-top: 15%;
 }
 .case-bar img{
     width: 90%;
@@ -165,38 +165,4 @@
     padding: 3%;
     width: 43%;
     margin: 0 0 0 auto;
-}
-
-.case-return{
-    position: absolute;
-    right: 1.5%;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    width: 3vh;
-    height: 3vh;
-    border: none;
-    padding: 0;
-    background-color: rgba(0,0,0,0);
-    border-radius: 50%;
-    transition: background-color .3s;
-    outline: none;
-}
-.case-return:hover, .case-return:focus{
-    background-color: rgba(236, 185, 64, 0.4);
-}
-.case-return:active{
-    transform: scale(0.85);
-}
-.case-return img{
-    width: 100%;
-    height: 100%;
-    filter: invert(35%) sepia(60%);
-}
-.case-return-space{
-    position: relative;
-    z-index: 1;
-    background-color: rgba(0,0,0,0);
-    height: 5%;
-    box-shadow: 0px 5px 4px #574d42;
 }

@@ -12,7 +12,6 @@
         var quantity = document.querySelectorAll('.case-bar').length;
         fetch('./db/get_cases_by_category.php'+'?category='+window.categorySelected+'&quantity='+quantity)
             .then(response => response.json())
-            .catch(e => console.log(e))
             .then(json => {
                 insertCaseHTML(json.length);
                 var case_bars_p = document.querySelectorAll('.case-bar p');
@@ -23,8 +22,7 @@
                     json[i];
                 }
             })
-            .catch(e => console.log(e))
-            .then(updateClickEvent);
+            .then(() => updateClickEvent(quantity));
     }
     //插入案件HTML版型到尾端
     function insertCaseHTML(num) {
@@ -34,18 +32,23 @@
         }
     }
     //更新案件按鈕的點擊事件
-    function updateClickEvent(){
+    function updateClickEvent(pointer){
         var case_bars = document.querySelectorAll('.case-bar');
         var case_contents = document.querySelectorAll('.case-content');
-        var lastOpened;
-        for (let i = 0; i < case_bars.length; i++) {
+        for (let i = pointer; i < case_bars.length; i++) {
             case_bars[i].addEventListener('click', () => {
+                removeIsOpen(i);
                 case_contents[i].classList.toggle('is-open');
-                if (lastOpened != undefined && lastOpened != i) {
-                    case_contents[lastOpened].classList.remove('is-open');
-                }
-                lastOpened = i;
             })
+        }
+    }
+    //移除所有class="is-open"，除了index == i
+    function removeIsOpen(exceptIndex){
+        var case_contents = document.querySelectorAll('.case-content');
+        for(let i=0; i<case_contents.length; i++){
+            if(i != exceptIndex){
+                case_contents[i].classList.remove('is-open');
+            }
         }
     }
 

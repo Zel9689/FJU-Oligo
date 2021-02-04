@@ -1,3 +1,5 @@
+changeTitle();
+//Post function
 function postData(url, data) {
     // Default options are marked with *
     return fetch(url, {
@@ -24,18 +26,19 @@ function ajaxLoad(replacedNode, url, appendList, removeList) {
     node.remove();
     mark = document.querySelector('.ajax-mark');
     if (url.includes('?')) {
-        url = url + '&ajax=1';
+        var url_withQuery = url + '&ajax=1';
     } else {
-        url = url + '?ajax=1';
+        var url_withQuery = url + '?ajax=1';
     }
-    console.log(url + 'here!!!');
-    fetch(url)
+    fetch(url_withQuery)
         .then(response => response.text())
         .then(text => mark.insertAdjacentHTML('afterend', text))
         .then(() => {
             mark.remove();
             dynamicLoadScripts(appendList, removeList);
-        });
+        })
+        .then(() => history.pushState({ page: url }, "dontcare", url))
+        .then(() => changeTitle());
 }
 //如果開始播放就把播放鍵隱藏
 function handleFirstPlay(event) {
@@ -63,5 +66,15 @@ function dynamicLoadScripts(appendList, removeList) {
         var script = document.createElement('script');
         script.src = scriptPath;
         head.appendChild(script);
+    }
+}
+//change page title
+function changeTitle() {
+    for (let value of document.URL.split('/')) {
+        if (value.includes('.php')) {
+            document.title = value.split('.')[0] + ' - ' + '疚事排出所';
+            break;
+        }
+        document.title = '疚事排出所';
     }
 }

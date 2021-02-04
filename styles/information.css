@@ -2,3 +2,32 @@
     width: 100%;
     height: 100%;
 }
+.info-return{
+    position: absolute;
+    right: 5%;
+    top: 3%;
+    bottom: 0;
+    width: 5vh;
+    height: 5vh;
+    border: none;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    transition: background-color .3s;
+    outline: none;
+    filter:drop-shadow(-10px 10px 10px rgba(42, 42, 42, .5));
+}
+.info-return:hover, .info-return:focus{
+    background-color: rgb(235, 218, 126);
+}
+.info-return:active{
+    transform: invert(75%);
+}
+.info-return img{
+    width: 100%;
+    height: 100%;
+    filter: invert(35%) sepia(60%);
+}
+.info-return:active{
+    transform: scale(0.85);
+}

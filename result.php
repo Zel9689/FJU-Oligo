@@ -1,6 +1,8 @@
 <?php
 $headless = true;
-// if($_GET['page'])
+if($_GET['ajax'] == '1'){
+  $headless = false;
+}
 
 $src = array(
   '愛情' => './data/結果頁/結果頁 愛情.jpg',
