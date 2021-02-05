@@ -8,31 +8,46 @@
 </div></div></div>\
 ';
     //載入更多案件
-    function loadCases(){
+    function loadCases() {
+        console.log('LoadCases triggered');
         var quantity = document.querySelectorAll('.case-bar').length;
-        fetch('./db/get_cases_by_category.php'+'?category='+window.categorySelected+'&quantity='+quantity)
+        fetch('./db/get_cases_by_category.php' + '?category=' + window.categorySelected + '&quantity=' + quantity)
             .then(response => response.json())
             .then(json => {
                 insertCaseHTML(json.length);
                 var case_bars_p = document.querySelectorAll('.case-bar p');
                 var case_contents_p = document.querySelectorAll('.case-content p');
-                for(let i=0; i<json.length; i++){
-                    case_bars_p[quantity+i].textContent = 
-                    case_contents_p[quantity+i].textContent = 
-                    json[i];
+                for (let i = 0; i < json.length; i++) {
+                    case_bars_p[quantity + i].textContent =
+                        case_contents_p[quantity + i].textContent =
+                        json[i];
                 }
             })
             .then(() => updateClickEvent(quantity));
     }
+    //滾輪事件觸發載入更多案件
+    const case_list = document.querySelector('.case-list');
+    var triggerMore = true;
+    case_list.addEventListener('scroll', (e) => {
+        console.log(e.target.scrollTop, e.target.scrollTopMax);
+        if (triggerMore) {
+            setTimeout(() => {
+                if (e.target.scrollTop * 2 > e.target.scrollTopMax) {
+                    loadCases();
+                }
+            }, 0)
+            .then(triggerMore = true);
+        }
+        triggerMore = false;
+    });
     //插入案件HTML版型到尾端
     function insertCaseHTML(num) {
-        var case_list = document.querySelector('.case-list');
         for (let i = 0; i < num; i++) {
             case_list.insertAdjacentHTML('beforeend', caseHTML);
         }
     }
-    //更新案件按鈕的點擊事件
-    function updateClickEvent(pointer){
+    //案件按鈕的點擊事件更新迴圈
+    function updateClickEvent(pointer) {
         var case_bars = document.querySelectorAll('.case-bar');
         var case_contents = document.querySelectorAll('.case-content');
         for (let i = pointer; i < case_bars.length; i++) {
@@ -43,10 +58,10 @@
         }
     }
     //移除所有class="is-open"，除了index == i
-    function removeIsOpen(exceptIndex){
+    function removeIsOpen(exceptIndex) {
         var case_contents = document.querySelectorAll('.case-content');
-        for(let i=0; i<case_contents.length; i++){
-            if(i != exceptIndex){
+        for (let i = 0; i < case_contents.length; i++) {
+            if (i != exceptIndex) {
                 case_contents[i].classList.remove('is-open');
             }
         }
@@ -55,5 +70,5 @@
     document.querySelector('.case-return').addEventListener('click', () => history.back());
 
     loadCases();
-    window.test = {loadCases: loadCases};
+    window.test = { loadCases: loadCases };
 })(window)
