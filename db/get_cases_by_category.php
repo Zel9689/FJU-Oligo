@@ -1,19 +1,15 @@
 <?php
-$host = 'localhost';
-$user = 'zelus';
-$passwd = '1234';
-$database = 'OligoFJU';
-$connect = new mysqli($host, $user, $passwd, $database);
-if($connect->connect_error) {
-    die("連結失敗: " . $connect->connect_error);
+$mysqli = new mysqli("localhost", "zelus", "1234", "OligoFJU"); //host, user, passwd, database_name
+/* check connection */
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
 }
-// echo "連線成功";
-// echo "<br>";
-
+$mysqli->query("SET NAMES 'utf8'"); //設定連線編碼，防止中文字亂碼
 $category = $_GET['category']; //要求什麼種類的
 $quantity = $_GET['quantity']; //client端目前筆數
 $num_per_load = 10; //每次刷新幾筆
-if($quantity == NULL){
+if ($quantity == NULL) {
     $quantity = 0;
 }
 
@@ -27,19 +23,30 @@ $name_map = array(
     'others' => '其他',
 );
 $data = array();
-foreach($name_map as $key => $value){
-    if($category == $key){
-        $selectSql = "SELECT * FROM confess_form WHERE category = '" . $value . "' ORDER BY ID DESC LIMIT " . $quantity . "," . $num_per_load;
-        $query = $connect->query($selectSql);
-        if($query->num_rows > 0){
-            while($row = $query->fetch_row()){
+
+/* create a prepared statement */
+if ($stmt = $mysqli->prepare("SELECT * FROM confess_form WHERE category = ? ORDER BY ID DESC LIMIT ? , ?")) {
+
+    /* bind parameters for markers */
+    $stmt->bind_param("sii", $value, $quantity, $num_per_load);
+
+    foreach ($name_map as $key => $value) {
+        if ($category == $key) {
+            /* execute query */
+            $stmt->execute();
+            $result = $stmt->get_result();
+            while ($row = $result->fetch_row()){
                 array_push($data, $row[2]);
             }
+
+            break;
         }
-        break;
     }
+    /* close statement */
+    $stmt->close();
 }
+
+/* close connection */
+$mysqli->close();
 header('Content-Type: application/json');
 echo json_encode($data);
-
-

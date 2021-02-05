@@ -9,7 +9,7 @@
   });
   //影片結束淡出 -> 打字機
   openingVid.addEventListener('ended', () => {
-    let fadeoutSec = 1; //hard-coded
+    let fadeoutSec = 3; //hard-coded
     openingVid.classList.add('fade-out');
     let index = 0;
     let i = 0;
@@ -35,13 +35,13 @@
       i++;
     }
     if (i < data.length) {
-      setTimeout(writing.bind(this, index, i), 1);
+      setTimeout(writing.bind(this, index, i), 200);
     } else {
       setTimeout(() => {
         console.log('inside');
         foreword_p.classList.add('fade-out');
         confessBtn.classList.add('fade-in');
-      }, 500)
+      }, 1500)
     }
   }
 

@@ -12,7 +12,7 @@
 }
 .window-wrap .vid-opening.fade-out{
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 3s;
 }
 
 .window-wrap .play-btn {
@@ -92,7 +92,7 @@
   border-radius: 10px;
   outline: none;
   border: none;
-  transition: transform .3s, background-color .3s, opacity 2s;
+  transition: background-color .3s, opacity 2s;
 }
 .confess-btn:hover, .confess-btn:focus{
   background-color: rgba(119, 119, 119, 0.726);
