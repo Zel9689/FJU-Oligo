@@ -9,8 +9,8 @@
   });
   //影片結束淡出 -> 打字機
   openingVid.addEventListener('ended', () => {
-    let fadeoutSec = 3;
-    openingVid.style = 'opacity: 0; transition: '+fadeoutSec+'s;';
+    let fadeoutSec = 1; //hard-coded
+    openingVid.classList.add('fade-out');
     let index = 0;
     let i = 0;
     setTimeout(writing.bind(this, index, i), fadeoutSec*1000 - 500);
@@ -35,13 +35,13 @@
       i++;
     }
     if (i < data.length) {
-      setTimeout(writing.bind(this, index, i), 10);
+      setTimeout(writing.bind(this, index, i), 1);
     } else {
       setTimeout(() => {
         console.log('inside');
-        foreword_p.style = 'opacity: 0; height: 0;transition: 1s;';
-        confessBtn.style = 'opacity: 1; transition: 2s;';
-      }, 2000)
+        foreword_p.classList.add('fade-out');
+        confessBtn.classList.add('fade-in');
+      }, 500)
     }
   }
 

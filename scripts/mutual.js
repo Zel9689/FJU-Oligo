@@ -49,7 +49,7 @@ function handleFirstPlay(event) {
     let vid = event.target;
     vid.onplay = null;
     // Start whatever you need to do after playback has started
-    // vid.playbackRate = 3;
+    vid.playbackRate = 5;
     var playBtn = document.querySelector('.play-btn');
     playBtn.style = 'display: none';
 }

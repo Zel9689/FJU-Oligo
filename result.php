@@ -34,7 +34,7 @@ if ($headless) {
       <a class="close"></a>
     </div>
     <div class="sites-btn">
-      <a class="facebook" href="https://www.facebook.com/sharer.php?u=http://www.google.com/&quote=尬林拿" target="_blank"><img src="./data/fb.svg">Facebook</a>
+      <a class="facebook" href="https://www.facebook.com/sharer.php?u=http://www.google.com/&quote=輸入網站的簡短描述" target="_blank"><img src="./data/fb.svg">Facebook</a>
       <a class="twitter"><img src="./data/twitter.svg">Twitter</a>
       <a class="Instgram"><img src="./data/ig.svg">Instgram</a>
       <a class="Line" href="https://social-plugins.line.me/lineit/share?url=http://www.google.com" target="_blank"><img src="./data/line.svg">Line</a>

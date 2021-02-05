@@ -2,6 +2,7 @@ html, body{
     margin: 0;
     padding: 0;
     border: 0;
+    background-color: #000;
 }
 @font-face {
     font-family: "CSong3HK Medium";
@@ -20,3 +21,23 @@ html, body{
 .font-optima{
     font-family: Optima;
 }
+.window-wrap {
+    position: absolute;
+    height: 100vh;
+    width: 56.25vh;
+    min-height: 560px;
+    min-width: 320px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    overflow-y: hidden;
+  }
+  
+  @media all and (max-width: 767px){
+    .window-wrap {
+      height: 177.77vw;
+      width: 100vw;
+    }
+  }
