@@ -5,13 +5,13 @@ if($_GET['ajax'] == '1'){
 }
 
 $src = array(
-  '愛情' => './data/結果頁/結果頁 愛情.jpg',
-  '友情' => './data/結果頁/結果頁 友情.jpg',
-  '學業' => './data/結果頁/結果頁 學業.jpg',
-  '親情' => './data/結果頁/結果頁 親情.jpg',
-  '工作' => './data/結果頁/結果頁 工作.jpg',
-  '生活' => './data/結果頁/結果頁 生活.jpg',
-  '其他' => './data/結果頁/結果頁 其他.jpg',
+  '愛情' => './data/結果頁/結果頁 愛情_s.jpg',
+  '友情' => './data/結果頁/結果頁 友情_s.jpg',
+  '學業' => './data/結果頁/結果頁 學業_s.jpg',
+  '親情' => './data/結果頁/結果頁 親情_s.jpg',
+  '工作' => './data/結果頁/結果頁 工作_s.jpg',
+  '生活' => './data/結果頁/結果頁 生活_s.jpg',
+  '其他' => './data/結果頁/結果頁 其他_s.jpg',
 );
 $category = '其他'; //沒用GET取得的圖片
 if($_GET['category'] != NULL){
@@ -30,21 +30,21 @@ if ($headless) {
 
   <div class="share-window">
     <div class="title-close">
-      <p>分享你的案件</p>
+      <p class="font-song">分享你的案件</p>
       <a class="close"></a>
     </div>
     <div class="sites-btn">
-      <a class="facebook" href="https://www.facebook.com/sharer.php?u=http://www.google.com/&quote=輸入網站的簡短描述" target="_blank"><img src="./data/fb.svg">Facebook</a>
-      <a class="twitter"><img src="./data/twitter.svg">Twitter</a>
-      <a class="Instgram"><img src="./data/ig.svg">Instgram</a>
-      <a class="Line" href="https://social-plugins.line.me/lineit/share?url=http://www.google.com" target="_blank"><img src="./data/line.svg">Line</a>
+      <a class="facebook font-optima" href="https://www.facebook.com/sharer.php?u=https://fju.syeeo.com/" target="_blank"><img src="./data/fb.svg">Facebook</a>
+      <a class="twitter font-optima" href="https://twitter.com/intent/tweet?url=https://fju.syeeo.com&hashtags=%E7%96%9A%E4%BA%8B%E6%8E%92%E5%87%BA%E6%89%80" target="_blank"><img src="./data/twitter.svg">Twitter</a>
+      <a class="Instgram font-optima"><img src="./data/ig.svg">Instgram</a>
+      <a class="Line font-optima" href="https://social-plugins.line.me/lineit/share?url=https://fju.syeeo.com/" target="_blank"><img src="./data/line.svg">Line</a>
       <div class="link">
-        <p>https://abc.example.com</p>
-        <a class="copy-link">複製！</a>
+        <p class="font-optima">https://fju.syeeo.com/</p>
+        <a class="copy-link">複製</a>
       </div>
     </div>
   </div>
-  <script src="./scripts/result.js"></script>
+  <script src="./scripts/result.js?0812a54"></script>
 </div>
 
 

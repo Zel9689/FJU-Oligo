@@ -47,13 +47,15 @@
 }
 
 .files-img ~ button p{
-    position: relative;
-    top: 34%;
+    position: absolute;
     font-size: 20px;
     text-align: center;
     color: #fff;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.others p{
-    left: 13%;
+button.others p{
+    left: 63%;
 }

@@ -38,11 +38,11 @@
     var triggerMore = true; //在請求時進入CD，不能再請求
     var hasMoreCases = true; //如果回傳的json長度為0代表已經沒有更多案件了
     case_list.addEventListener('scroll', (e) => {
-        console.log(e.target.scrollTop, e.target.scrollTopMax);
-        console.log('triggerMore='+triggerMore,'hasMoreCases='+hasMoreCases);
+        // console.log(e.target.scrollTop, (e.target.scrollHeight - e.target.clientHeight));
+        // console.log('triggerMore='+triggerMore,'hasMoreCases='+hasMoreCases);
         if (triggerMore && hasMoreCases) {
             setTimeout(() => {
-                if (e.target.scrollTop * 2 > e.target.scrollTopMax) {
+                if (e.target.scrollTop * 2 > (e.target.scrollHeight - e.target.clientHeight)) {
                     triggerMore = false;
                     loadCases().then(() => triggerMore = true);
                 }

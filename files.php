@@ -9,7 +9,7 @@ if ($headless) {
 ?>
 
 <div class="window-wrap">
-    <img class="files-img" src="./data/檔案區.jpg" alt="">
+    <img class="files-img" src="./data/檔案區_s.jpg" alt="">
     <button class="love font-optima"><p>50%</p></button>
     <button class="friend font-optima"><p>30%</p></button>
     <button class="family font-optima"><p>30%</p></button>
@@ -18,7 +18,7 @@ if ($headless) {
     <button class="life font-optima"><p>30%</p></button>
     <button class="others font-optima"><p>30%</p></button>
     <button class="no-entry"></button>
-    <script src="./scripts/files.js"></script>
+    <script src="./scripts/files.js?081254"></script>
 </div>
 
 <?php

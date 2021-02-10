@@ -59,7 +59,7 @@
     justify-content: flex-start;
     flex: 1;
     margin: 0;
-    font-size: large;
+    font-size: 20px;
 }
 .share-window a, .share-window a:visited{
     background-color: #fff;

@@ -4,16 +4,27 @@
   const foreword = document.querySelector('.foreword');
   const confessBtn = document.querySelector('.confess-btn');
   const foreword_p = document.querySelector('.foreword p');
+  //  影片載入完後隱藏載入動畫
+  // vidLoadingDomHandler(openingVid).then(() => {
+  //   setTimeout(()=>{
+  //     openingVid.play();console.log('start vid');
+  //   });
+  // });
+
   playBtn.addEventListener('click', function () {
     openingVid.play();
   });
+  setTimeout(()=>{
+    document.querySelector('.loading-wrapper').classList.add('loaded');
+    openingVid.play();
+  }, 1500);
   //影片結束淡出 -> 打字機
   openingVid.addEventListener('ended', () => {
     let fadeoutSec = 3; //hard-coded
     openingVid.classList.add('fade-out');
     let index = 0;
     let i = 0;
-    setTimeout(writing.bind(this, index, i), fadeoutSec*1000 - 500);
+    setTimeout(writing.bind(this, index, i), fadeoutSec*1000 - 1000);
   });
   var index = 5;
   //打字機效果
@@ -35,10 +46,10 @@
       i++;
     }
     if (i < data.length) {
-      setTimeout(writing.bind(this, index, i), 200);
+      setTimeout(writing.bind(this, index, i), 100);
     } else {
       setTimeout(() => {
-        console.log('inside');
+        // console.log('inside');
         foreword_p.classList.add('fade-out');
         confessBtn.classList.add('fade-in');
       }, 1500)
@@ -48,7 +59,7 @@
   //跳到下一個part
   confessBtn.addEventListener('click', () => {
     var removeList = ['index.js'];
-    var appendList = ['./scripts/confess.js'];
+    var appendList = ['./scripts/confess.js?x2a54'];
     ajaxLoad('.window-wrap', './confess.php', appendList, removeList);
     });
 

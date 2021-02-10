@@ -9,15 +9,46 @@ if ($headless) {
 ?>
 
 <div class="window-wrap">
-  <video class="vid-push" muted="true" onplay=handleFirstPlay(event)>
-    <source src="./data/推開.webm" type="video/webm">
-    <p>你的瀏覽器不支援 HTML 5 video</p>
-  </video>
-  <button class="play-btn">Start</button>
-  <button class="temp">proceed</button>
-
+<div class="loading-wrapper">
+  <div class="wrapper">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="shadow"></div>
+    <div class="shadow"></div>
+    <div class="shadow"></div>
+    <!-- <span>Loading</span> -->
+  </div>
+</div>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+    <button class="next-page"></button>
+      <video playsinline class="vid-push" muted="true" onplay=handleFirstPlay(event) preload="auto">
+      <source src="./data/推開_44KB.mp4" type="video/mp4">
+      <source src="./data/推開_74KB.webm" type="video/webm">
+      <source src="./data/推開_436KB.ogv" type="video/ogg">
+      <p>你的瀏覽器不支援 HTML 5 video</p>
+      </video>
+    </div>
+    <div class="swiper-slide">
+    <div class="loading-wrapper" style="background: none;">
+  <div class="wrapper"> 
+    <div class="circle"></div> 
+    <div class="circle"></div> 
+    <div class="circle"></div>  
+    <div class="shadow"></div>  
+    <div class="shadow"></div> 
+    <div class="shadow"></div>  
+   </div> 
+  </div> 
+    </div>
+  </div>
+</div>
+  
+<button class="play-btn">Start</button>
   <div class="confess-form">
-    <img src="./data/自首單界面-01.jpg" alt="">
+    <img src="./data/自首單界面-01_s.jpg" alt="">
     <form>
       <select name="category" class="category" required>
         <option value="">請選擇你自首的類別</option>
@@ -34,7 +65,8 @@ if ($headless) {
       <!-- To-do: implement ajax POST -->
     </form>
   </div>
-  <script src="./scripts/confess.js"></script>
+  <!-- todo: 從ajax載入的問題 script怎麼載 -->
+  <script src="./scripts/confess.js?08122a54"></script>
 </div>
 
 <?php
