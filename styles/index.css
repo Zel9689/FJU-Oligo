@@ -85,10 +85,12 @@
   opacity: 0;
   position: absolute;
   height: auto;
-  width: intrinsic;           /* Safari/WebKit uses a non-standard name */
-  width: -moz-max-content;    /* Firefox/Gecko */
-  width: -webkit-max-content; /* Chrome */
-  width: max-content;
+  /* width: intrinsic;           
+  width: -moz-max-content;    
+  width: -webkit-max-content; 
+  width: max-content; */
+  display: inline-block;
+  width: 35%;
   left: 0;
   right: 0;
   margin: auto;
@@ -100,6 +102,7 @@
   outline: none;
   border: none;
   transition: background-color .3s, opacity 2s;
+  padding: 0 15px;
 }
 .confess-btn:hover, .confess-btn:focus{
   background-color: rgba(119, 119, 119, 0.726);

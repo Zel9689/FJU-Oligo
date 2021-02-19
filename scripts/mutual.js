@@ -113,5 +113,5 @@ window.onpopstate = function (e) {
         }
         return 'index'
     })();
-    ajaxLoad('.window-wrap', nextUrl, ['./scripts/' + nextUrl.split('?')[0].replace('php', 'js?a123')], [currentUrl + '.js'], false);
+    ajaxLoad('.window-wrap', nextUrl, ['./scripts/' + nextUrl.split('?')[0].replace('php', 'js?a20210219')], [currentUrl + '.js'], false);
 }

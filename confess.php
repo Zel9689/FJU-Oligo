@@ -62,10 +62,8 @@ if ($headless) {
       </select>
       <textarea class="font-song" name="confess-content" placeholder="【你可以寫下曾經讓你有罪惡感的事】" maxlength="500" required></textarea>
       <input type="submit" value="" class="commit"></input>
-      <!-- To-do: implement ajax POST -->
     </form>
   </div>
-  <!-- todo: 從ajax載入的問題 script怎麼載 -->
   <script src="./scripts/confess.js?08122a54"></script>
 </div>
 
