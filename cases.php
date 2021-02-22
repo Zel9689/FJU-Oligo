@@ -16,7 +16,7 @@ if ($headless) {
         <button class="case-return"><img src="./data/close.svg" alt=""></button>
       </div>
       <div class="case-list">
-
+      <p class="font-song no-data-alert hide">目前還沒有人自首這個分類</p>
       </div>
     </div>
     <img class="slogan" src="./data/圖層/要排出.png" alt=""></img>

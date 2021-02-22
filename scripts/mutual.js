@@ -67,7 +67,7 @@ function dynamicLoadScripts(appendList, removeList) {
         }
         for (let scriptPath of appendList) {
             var script = document.createElement('script');
-            script.src = scriptPath;
+            script.src = scriptPath+'?ver20210223';
             head.appendChild(script);
         }
         resolve();
@@ -113,5 +113,5 @@ window.onpopstate = function (e) {
         }
         return 'index'
     })();
-    ajaxLoad('.window-wrap', nextUrl, ['./scripts/' + nextUrl.split('?')[0].replace('php', 'js?a20210219')], [currentUrl + '.js'], false);
+    ajaxLoad('.window-wrap', nextUrl, ['./scripts/' + nextUrl.split('?')[0].replace('php', 'js')], [currentUrl + '.js'], false);
 }

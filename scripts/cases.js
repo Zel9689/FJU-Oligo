@@ -29,6 +29,7 @@
                     }
                 })
                 .then(() => updateClickEvent(quantity))
+                .then(() => displayNoDataAlert(hasMoreCases))
                 .then(() => resolve());
 
         });
@@ -75,6 +76,13 @@
             }
         }
     }
+    //如果有資料則移除"目前沒資料"的提示元素
+    function displayNoDataAlert(hasMoreCases){
+        if(!hasMoreCases){
+            document.querySelector('.no-data-alert').classList.remove('hide');
+        }
+    }
+
     //click return button to call history.back()
     document.querySelector('.case-return').addEventListener('click', () => history.back());
 

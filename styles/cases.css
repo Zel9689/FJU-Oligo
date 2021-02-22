@@ -200,3 +200,15 @@
     height: 5%;
     box-shadow: 0px 5px 4px #574d42;
 }
+.no-data-alert{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    padding-top: 30px;
+    white-space: nowrap;
+}
+
+.no-data-alert.hide{
+    display: none;
+}

@@ -9,14 +9,15 @@ if ($headless) {
 ?>
 
 <div class="window-wrap">
-    <img class="files-img" src="./data/檔案區_s.jpg" alt="">
-    <button class="love font-optima"><p>50%</p></button>
-    <button class="friend font-optima"><p>30%</p></button>
-    <button class="family font-optima"><p>30%</p></button>
-    <button class="studies font-optima"><p>30%</p></button>
-    <button class="work font-optima"><p>30%</p></button>
-    <button class="life font-optima"><p>30%</p></button>
-    <button class="others font-optima"><p>30%</p></button>
+    <button class="files-return"><img src="./data/返回箭頭.png" alt=""></button>
+    <img class="files-img" src="./data/檔案區_s.jpg?20210219" alt="">
+    <button class="love font-optima"><p>%</p></button>
+    <button class="friend font-optima"><p>%</p></button>
+    <button class="family font-optima"><p>%</p></button>
+    <button class="studies font-optima"><p>%</p></button>
+    <button class="work font-optima"><p>%</p></button>
+    <button class="life font-optima"><p>%</p></button>
+    <button class="others font-optima"><p>%</p></button>
     <button class="no-entry"></button>
     <script src="./scripts/files.js?081254"></script>
 </div>
