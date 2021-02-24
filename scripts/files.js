@@ -8,7 +8,7 @@
   const others_p = document.querySelector('.others p');
   
   document.querySelector('.files-return').addEventListener('click', () => {
-    ajaxLoad('.window-wrap', './confess.php', ['./scripts/confess.js'], ['files.js']);
+    ajaxLoad('.window-wrap', './', ['./scripts/index.js'], ['files.js']);
   });
 
   fetch('./db/get_category_percent.php')

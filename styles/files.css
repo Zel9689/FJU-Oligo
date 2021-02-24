@@ -62,7 +62,7 @@ button.others p{
 button.files-return{
     position: absolute;
     top: 2%;
-    left: 3%;
+    right: 3%;
     background-color: rgba(0,0,0,0);
     border: none;
     border-radius: 50%;

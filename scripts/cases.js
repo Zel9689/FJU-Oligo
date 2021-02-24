@@ -7,12 +7,16 @@
 <div class="right"><p class="font-song"></p><img class="all-let-go" src="./data/圖層/all_let_go.png" alt="">\
 </div></div></div>\
 ';
+    const alert_string = document.querySelector('.no-data-alert');
     //載入更多案件
     function loadCases() {
         return new Promise((resolve, reject) => {
 
             console.log('LoadCases triggered');
             var quantity = document.querySelectorAll('.case-bar').length;
+            if(window.categorySelected == undefined){
+                alert_string.textContent = '請退回檔案區選擇分類'
+            }
             fetch('./db/get_cases_by_category.php' + '?category=' + window.categorySelected + '&quantity=' + quantity)
                 .then(response => response.json())
                 .then(json => {
@@ -28,6 +32,7 @@
                             json[i];
                     }
                 })
+                .then(() => removeLoadingAnimate())
                 .then(() => updateClickEvent(quantity))
                 .then(() => displayNoDataAlert(hasMoreCases))
                 .then(() => resolve());
@@ -79,8 +84,12 @@
     //如果有資料則移除"目前沒資料"的提示元素
     function displayNoDataAlert(hasMoreCases){
         if(!hasMoreCases){
-            document.querySelector('.no-data-alert').classList.remove('hide');
+            alert_string.classList.remove('hide');
         }
+    }
+    //載入後移除載入動畫
+    function removeLoadingAnimate(){
+        document.querySelector('.lds-ring').classList.add('hide');
     }
 
     //click return button to call history.back()

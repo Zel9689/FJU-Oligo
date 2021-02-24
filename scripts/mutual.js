@@ -67,7 +67,7 @@ function dynamicLoadScripts(appendList, removeList) {
         }
         for (let scriptPath of appendList) {
             var script = document.createElement('script');
-            script.src = scriptPath+'?ver20210223';
+            script.src = scriptPath+'?ver20210224';
             head.appendChild(script);
         }
         resolve();
